@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0; padding: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e1e2f 0%, #3b0f4f 100%);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #eee;
+  overflow: hidden;
+}
+
+#videoWindow {
+  margin-top: 40px;
+  background: linear-gradient(145deg, #2a2734, #3d3550);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(107,0,163,0.7);
+  width: 85%;
+  max-width: 960px;
+  overflow: hidden;
+  animation: fadeSlideIn 1s ease forwards;
+  position: relative;
+}
+
+video {
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  background: black;
+  box-shadow: inset 0 0 20px #6b00a3;
+  transition: filter 0.3s ease;
+}
+
+video:hover {
+  filter: brightness(1.05) saturate(1.1);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  background: linear-gradient(90deg, #3b0f4f, #6b00a3);
+  gap: 25px;
+  border-radius: 0 0 20px 20px;
+}
+
+.controls button {
+  background: transparent;
+  border: none;
+  color: #d9b8ff;
+  font-size: 1.7rem;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 10px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 10px transparent;
+}
+
+.controls button:hover {
+  background: #8a40ff;
+  color: white;
+  transform: scale(1.2);
+  box-shadow: 0 0 20px #d9b8ff;
+}
+
+#videoList {
+  margin-top: 30px;
+  width: 85%;
+  max-width: 960px;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+#videoList::-webkit-scrollbar {
+  height: 8px;
+}
+
+#videoList::-webkit-scrollbar-track {
+  background: #2a2734;
+  border-radius: 10px;
+}
+
+#videoList::-webkit-scrollbar-thumb {
+  background: #6b00a3;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #d9b8ff;
+}
+
+#videoList li {
+  background: #3d3550;
+  padding: 14px 28px;
+  border-radius: 18px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-weight: 600;
+  color: #bdb4d4;
+  user-select: none;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  box-shadow: 0 0 5px transparent;
+}
+
+#videoList li:hover {
+  background: #6b00a3;
+  color: #fff;
+  transform: scale(1.15);
+  box-shadow: 0 0 15px #d9b8ff;
+}
+
+#videoList li.active {
+  background: #b460ff;
+  color: white;
+  transform: scale(1.25);
+  box-shadow: 0 0 25px #e6ccff;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+  }
+
+  #videoWindow {
+    width: 100%;
+    max-width: none;
+    border-radius: 10px;
+  }
+
+  .controls button {
+    font-size: 1.4rem;
+    padding: 8px 16px;
+  }
+
+  #videoList li {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+  }
+}
